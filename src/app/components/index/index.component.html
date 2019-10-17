@@ -8,7 +8,7 @@
       <div  id="tab1" class="tab-pane active">
         <div  class="products-slick" data-nav="#slick-nav-1">
           <!-- product -->
-          <div class="product ">
+          <div class="product " [routerLink]="['/product',{id:product.id}]">
             <div class="product-img">
               <img src="../../assets/img/{{product.photo}}" alt="" >
               <div class="product-label">
@@ -18,7 +18,7 @@
             </div>
             <div class="product-body">
               <p class="product-category">Category</p>
-              <h3 class="product-name"><a href="#">{{product.name}}</a></h3>
+              <h3 class="product-name"><a [routerLink]="['/product',{id:product.id}]">{{product.name}}</a></h3>
               <h4 class="product-price">{{product.price}}$ <del class="product-old-price">{{product.price*100/70}}$</del></h4>
               <div class="product-rating">
                 <i class="fa fa-star"></i>
