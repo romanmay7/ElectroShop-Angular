@@ -3,13 +3,13 @@
 <!-- Products tab & slick -->
 <div class="container">
   <div class="row"  >
-    <div class="col-md-3" *ngFor="let product of products" >
+    <div class="col-md-2 col-sm-3" *ngFor="let product of products | paginate: config"  >
       <!-- tab -->
       <div  id="tab1" class="tab-pane active">
         <div  class="products-slick" data-nav="#slick-nav-1">
           <!-- product -->
-          <div class="product " [routerLink]="['/product',{id:product.id}]">
-            <div class="product-img">
+          <div class="product ">
+            <div class="product-img" [routerLink]="['/product',{id:product.id}]">
               <img src="../../assets/img/{{product.photo}}" alt="" >
               <div class="product-label">
                 <span class="sale">-30%</span>
@@ -44,7 +44,9 @@
       <!-- /tab -->
     </div>
   </div>
+  <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
 </div>
+
 <!-- Products tab & slick -->
 
 

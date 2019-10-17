@@ -11,8 +11,26 @@ import {ItemService} from '../../services/item.service';
 export class IndexComponent implements OnInit {
 
   private products:Product[];
+  config: any;
 
-  constructor(private productService:ProductService,private itemService:ItemService) {  }
+
+  pageChanged(event){
+    this.config.currentPage = event;
+  }
+
+
+  constructor(private productService:ProductService,private itemService:ItemService) { 
+
+   //configs for pagination module
+
+    this.config = {
+      itemsPerPage: 6,
+      currentPage: 1,
+      totalItems: this.itemService.items.length
+    };
+
+
+   }
 
   ngOnInit() {
     this.products=this.productService.findAll();
