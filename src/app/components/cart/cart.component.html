@@ -1,10 +1,56 @@
-<!-- <h3>Cart Info</h3>
-<h4>Total amount of items:{{items.length}}</h4> -->
-								<!-- Cart -->
+<section class="cart-section spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<div class="cart-table">
+						<h3>Your Cart</h3>
+						<div class="cart-table-warp">
+							<table>
+							<thead>
+								<tr>
+									<th class="product-th">Product</th>
+									<th class="quy-th">Quantity</th>
+                  <th class="total-th">Price</th>
+                  <th class="total-th"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let item of itemService.items">
+									<td class="product-col">
+										<img src="../../assets/img/{{item.product.photo}}" alt="">
+										<div class="pc-title">
+											<h4>{{item.product.name}}</h4>
+											<p>${{item.product.price}}</p>
+										</div>
+									</td>
+                  <td><h4>{{item.quantity}}</h4></td>
+								
+                  <td class="total-col"><h4>${{item.product.price}}</h4></td>
+                  <td align="center">
+                      <a class="btn btn-warning" (click)="itemService.remove(item.product.id)">Remove</a>
+                  </td>
+								</tr>
+							</tbody>
+						</table>
+						</div>
+						<div class="total-cost">
+							<h6>Total <span>${{itemService.total}}</span></h6>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 card-right">
+					<form class="promo-code-form">
+						<input type="text" placeholder="Enter promo code">
+						<button>Submit</button>
+					</form>
+					<a href="" class="site-btn">Proceed to checkout</a>
+					<a href="" class="site-btn sb-dark">Continue shopping</a>
+				</div>
+			</div>
+		</div>
+	</section>
 
-								<!-- /Cart -->
-
-<table border="1">
+<!-- <table border="1">
   <tr>
     <th>Option</th>
     <th>Id</th>
@@ -34,4 +80,4 @@
     <td>{{itemService.total}}</td>
   </tr>
   
-</table>
+</table> -->
