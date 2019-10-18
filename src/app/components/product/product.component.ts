@@ -20,11 +20,11 @@ export class ProductComponent implements OnInit {
     private activatedRoute:ActivatedRoute
   ) { }
 
-  ngOnInit() {
-    this.products=this.productService.findAll();
-    this.activatedRoute.params.subscribe(params=>{
+  async ngOnInit() {
+    this.products=await this.productService.findAll();
+     this.activatedRoute.params.subscribe(async params=>{
       var id=params['id'];
-      if(id) {this.selected_product=this.productService.find(id); }
+       if(id) { this.selected_product = await  this.productService.find(id)}; 
     });
   }
 }

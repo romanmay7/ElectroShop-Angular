@@ -28,15 +28,15 @@ export class ProductService {
 
   }
 
-  findAll():Product[]{
+  async findAll():Promise<Product[]>{
     return this.products;
   }
  
-  find(id:string):Product {
-    return this.products[this.getSelectedIndex(id)];
+  async find(id:string) {
+    return this.products[await this.getSelectedIndex(id)];
   }
 
-  getSelectedIndex(id: string) {
+  async getSelectedIndex(id: string) {
     for(var i=0;i<this.products.length;i++)
     {
       if(this.products[i].id==id)

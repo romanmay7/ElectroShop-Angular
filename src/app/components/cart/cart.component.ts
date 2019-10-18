@@ -25,28 +25,28 @@ export class CartComponent implements OnInit {
     private itemService:ItemService
   ) { }
 
-  ngOnInit() {
+    ngOnInit() {
 
     // this.items=this.itemService.items;
     // this.total=this.itemService.total;
     this.remove=this.itemService.remove;
     this.loadCart=this.itemService.loadCart;
 
-    this.activatedRoute.params.subscribe(params=>{
+    this.activatedRoute.params.subscribe(async params=>{
       var id=params['id'];
       if(id) {
         var item:Item={
-          product:this.productService.find(id),
+          product:await this.productService.find(id),
           quantity:1
         };
         if(localStorage.getItem('cart')==null){
           let cart:any=[];
           cart.push(JSON.stringify(item));
-          localStorage.setItem('cart',JSON.stringify(cart))
+          await localStorage.setItem('cart',JSON.stringify(cart))
         }
         else
         {
-          let cart:any=JSON.parse(localStorage.getItem('cart'));
+          let cart:any=JSON.parse(await localStorage.getItem('cart'));
           let index:number=-1;
           for(var i=0;i<cart.length;i++){
             let item:Item=JSON.parse(cart[i]);
@@ -57,14 +57,14 @@ export class CartComponent implements OnInit {
           }
         if(index==-1){
           cart.push(JSON.stringify(item));
-          localStorage.setItem('cart',JSON.stringify(cart));
+          await localStorage.setItem('cart',JSON.stringify(cart));
         }
          else 
          {
           let item:Item=JSON.parse(cart[index]);
           item.quantity +=1;
           cart[index]=JSON.stringify(item);
-          localStorage.setItem("cart",JSON.stringify(cart));
+          await localStorage.setItem("cart",JSON.stringify(cart));
          }
         
         }

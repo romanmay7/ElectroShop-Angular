@@ -32,8 +32,8 @@ export class IndexComponent implements OnInit {
 
    }
 
-  ngOnInit() {
-    this.products=this.productService.findAll();
+  async ngOnInit() {
+    this.products=await this.productService.findAll();
   }
 
 }
