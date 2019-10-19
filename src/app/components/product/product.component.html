@@ -49,20 +49,18 @@
                     <div class="product-details">
                         <h2 class="product-name">{{selected_product.name}}</h2>
                         <div>
-                            <div class="product-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
+
+                            <div class="product-rating" *ngFor="let i of [].constructor(productService.round(productService.averageRating(selected_product)))">
+                               <i class="fa fa-star"></i>
                             </div>
-                            <a class="review-link" href="#">10 Review(s) | Add your review</a>
+
+                            <a class="review-link" href="#">{{selected_product.reviews.length}} Review(s) | Add your review</a>
                         </div>
                         <div>
-                            <h3 class="product-price">{{selected_product.price}} <del class="product-old-price">{{selected_product.price*100/70}}$</del></h3>
+                            <h3 class="product-price">{{selected_product.price}} <del class="product-old-price">{{productService.round(selected_product.price*100/70)}}$</del></h3>
                             <span class="product-available">In Stock</span>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>{{selected_product.description}}</p>
 
                         <!-- <div class="product-options">
                             <label>
@@ -155,81 +153,23 @@
             <div class="col-md-3">
                 <div id="rating">
                     <div class="rating-avg">
-                        <span>4.5</span>
-                        <div class="rating-stars">
+                        <span>{{productService.averageRating(selected_product)}}</span>
+                        <div class="rating-stars" *ngFor="let i of [].constructor(productService.round(productService.averageRating(selected_product)))">
                             <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
+
                         </div>
                     </div>
-                    <ul class="rating">
+                    <ul class="rating" *ngFor="let review of selected_product.reviews">
                         <li>
-                            <div class="rating-stars">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
+                                <div class="rating-stars" *ngFor="let i of [].constructor(review.rating)">
                                 <i class="fa fa-star"></i>
                             </div>
                             <div class="rating-progress">
-                                <div style="width: 80%;"></div>
+                                <div [style.width.%]="review.rating*20"></div>                             
                             </div>
-                            <span class="sum">3</span>
+                            <span class="sum">{{review.rating}}</span>
                         </li>
-                        <li>
-                            <div class="rating-stars">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <div class="rating-progress">
-                                <div style="width: 60%;"></div>
-                            </div>
-                            <span class="sum">2</span>
-                        </li>
-                        <li>
-                            <div class="rating-stars">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <div class="rating-progress">
-                                <div></div>
-                            </div>
-                            <span class="sum">0</span>
-                        </li>
-                        <li>
-                            <div class="rating-stars">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <div class="rating-progress">
-                                <div></div>
-                            </div>
-                            <span class="sum">0</span>
-                        </li>
-                        <li>
-                            <div class="rating-stars">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <div class="rating-progress">
-                                <div></div>
-                            </div>
-                            <span class="sum">0</span>
-                        </li>
+                       
                     </ul>
                 </div>
             </div>
@@ -243,13 +183,11 @@
                             <div class="review-heading">
                                 <h5 class="name">{{review.reviewer_name}}</h5>
                                 <p class="date">27 DEC 2018, 8:0 PM</p>
-                                <div class="review-rating">
+                                
+                                <span class="rating-stars" *ngFor="let i of [].constructor(review.rating)">
                                     <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o empty"></i>
-                                </div>
+                                </span>
+
                             </div>
                             <div class="review-body">
                                 <p>{{review.content}}</p>
@@ -257,6 +195,11 @@
                         </li>
                         
                     </ul>
+
+                                <!-- <div class="rating-stars" *ngFor="let review of selected_product.reviews.rating">
+                                    <i class="fa fa-star-o empty"></i>
+                                </div> -->
+
                     <!-- <ul class="reviews-pagination">
                         <li class="active">1</li>
                         <li><a href="#">2</a></li>
