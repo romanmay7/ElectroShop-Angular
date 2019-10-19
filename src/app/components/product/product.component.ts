@@ -12,7 +12,9 @@ import {ActivatedRoute} from '@angular/router';
 export class ProductComponent implements OnInit {
 
   private products:Product[];
+  private id:string;
   private selected_product:Product;
+  
 
   constructor(
     private productService:ProductService,
@@ -23,8 +25,10 @@ export class ProductComponent implements OnInit {
   async ngOnInit() {
     this.products=await this.productService.findAll();
      this.activatedRoute.params.subscribe(async params=>{
-      var id=params['id'];
-       if(id) { this.selected_product = await  this.productService.find(id)}; 
+       this.id=params['id'];
+       if(this.id) { this.selected_product = await  this.productService.find(this.id)};
+       this.productService.getProductsByCategory(this.selected_product.category);//get all product with same 'category' as selected product 
     });
+    
   }
 }
