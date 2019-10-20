@@ -2,9 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.9.
 
-# ElectroShop Application is  Hosted on 'Git Pages'! Check the Link
+# ElectroShop Application is  Hosted on 'Git Pages'! 
 
 https://romanmayer7.github.io/ElectroShop-Angular/
+
+Check the Link
 
 ## Development server
 
