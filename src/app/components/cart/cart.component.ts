@@ -13,16 +13,16 @@ import {ProductService} from '../../services/product.service';
 })
 export class CartComponent implements OnInit {
   
-  private items:Item[]=[];
-  private total:number=0;
-  private remove(id:string):void{};
-  private loadCart():void{};
+  public items:Item[]=[];
+  public total:number=0;
+  public remove(id:string):void{};
+  public loadCart():void{};
 
 
   constructor(
-    private activatedRoute:ActivatedRoute,
-    private productService:ProductService,
-    private itemService:ItemService
+    public activatedRoute:ActivatedRoute,
+    public productService:ProductService,
+    public itemService:ItemService
   ) { }
 
     ngOnInit() {

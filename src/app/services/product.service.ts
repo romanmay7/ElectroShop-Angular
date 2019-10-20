@@ -8,11 +8,11 @@ import { Review } from '../entities/review.entity';
 })
 export class ProductService {
   
-  private products:Product[];
-  private search_results:Product[];
-  private reviews_p01:Review[];
-  private reviews_p02:Review[];
-  private reviews_p04:Review[];
+  public products:Product[];
+  public search_results:Product[];
+  public reviews_p01:Review[];
+  public reviews_p02:Review[];
+  public reviews_p04:Review[];
   
   //Seeding 
   constructor() {

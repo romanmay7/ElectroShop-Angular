@@ -8,12 +8,12 @@ import { Item } from '../../entities/item.entity';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  private items:Item[]=[];
-  private total:number=0;
-  private remove(id:string):void{};
-  private loadCart():void{};
+  public items:Item[]=[];
+  public total:number=0;
+  public remove(id:string):void{};
+  public loadCart():void{};
 
-  constructor(private itemService:ItemService) { }
+  constructor(public itemService:ItemService) { }
 
   ngOnInit() {
     // this.items=this.itemService.items;

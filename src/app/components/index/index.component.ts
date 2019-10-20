@@ -10,7 +10,7 @@ import {ItemService} from '../../services/item.service';
 })
 export class IndexComponent implements OnInit {
 
-  private products:Product[];
+  public products:Product[];
   config: any;
 
 
@@ -19,7 +19,7 @@ export class IndexComponent implements OnInit {
   }
 
 
-  constructor(private productService:ProductService,private itemService:ItemService) { 
+  constructor(public productService:ProductService,public itemService:ItemService) { 
 
    //configs for pagination module
 

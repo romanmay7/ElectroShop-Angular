@@ -11,15 +11,15 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class ProductComponent implements OnInit {
 
-  private products:Product[];
-  private id:string;
-  private selected_product:Product;
+  public products:Product[];
+  public id:string;
+  public selected_product:Product;
   
 
   constructor(
-    private productService:ProductService,
-    private itemService:ItemService,
-    private activatedRoute:ActivatedRoute
+    public productService:ProductService,
+    public itemService:ItemService,
+    public activatedRoute:ActivatedRoute
   ) { }
 
   async ngOnInit() {
