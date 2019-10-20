@@ -1,5 +1,5 @@
 		<!-- FOOTER -->
-		<footer id="footer">
+		<footer id="footer" >
                 <!-- top footer -->
                 <div class="section">
                     <!-- container -->
@@ -32,13 +32,14 @@
                             </div>
     
                             <div class="clearfix visible-xs"></div>
-    
+                            
+                                       
                             <div class="col-md-3 col-xs-6">
                                 <div class="footer">
                                     <h3 class="footer-title">Information</h3>
                                     <ul class="footer-links">
-                                        <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Contact Us</a></li>
+                                        <li><a [routerLink]="['/about']"><i class="fa fa-info"></i>About Us</a></li>
+                                        <li><a [routerLink]="['/contact']"><i class="fa fa-address-book"></i>Contact Us</a></li>
                                         <li><a href="#">Privacy Policy</a></li>
                                         <li><a href="#">Orders and Returns</a></li>
                                         <li><a href="#">Terms & Conditions</a></li>
@@ -51,7 +52,7 @@
                                     <h3 class="footer-title">Service</h3>
                                     <ul class="footer-links">
                                         <li><a href="#">My Account</a></li>
-                                        <li><a href="#">View Cart</a></li>
+                                        <li><a [routerLink]="['/cart']"><i class="fa fa-shopping-cart"></i>View Cart</a></li>
                                         <li><a href="#">Wishlist</a></li>
                                         <li><a href="#">Track My Order</a></li>
                                         <li><a href="#">Help</a></li>

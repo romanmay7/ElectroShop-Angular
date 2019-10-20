@@ -2191,7 +2191,7 @@ textarea.input {
 
 .contact{
   padding: 4%;
-  height: 400px;
+  height: auto;
 }
 .contact-info{
   margin-top:10%;
@@ -2204,16 +2204,24 @@ textarea.input {
 }
 .contact-form label{
   font-weight:600;
+  font-size:1.2em;
 }
 .contact-form button{
   background: #25274d;
   color: #fff;
   font-weight: 600;
   width: 25%;
+  font-size:1.3em;
   margin-top:10%;
 }
 .contact-form button:focus{
   box-shadow:none;
+}
+
+.form-group
+{
+  padding:2%;
+ 
 }
 
 /* ----------------

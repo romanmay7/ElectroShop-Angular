@@ -1,7 +1,3 @@
-<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
----- Include the above in your HEAD tag -------- -->
 
 <div class="container contact">
 	<div class="row">
@@ -12,39 +8,91 @@
 				<h4>We would love to hear from you !</h4>
 			</div>
 		</div>
-		<div class="col-md-9">
-			<div class="contact-form">
+		<div class="col-md-9"> 
+         <form class="contact-form"  #contactForm="ngForm" (ngSubmit)="onSubmit()" >
 				<div class="form-group">
 				  <label class="control-label col-sm-2" for="fname">First Name:</label>
 				  <div class="col-sm-10">          
-					<input type="text" class="form-control" id="fname" placeholder="Enter First Name" name="fname">
-				  </div>
-				</div>
+                    <input type="text" class="form-control" id="fname" placeholder="Enter First Name" required maxlength="30" minlength="2" ngModel name="fname" #fname="ngModel">
+                  </div>
+                </div>
+                 
+            <div *ngIf="fname.invalid && (fname.dirty || fname.touched)" class="alert alert-danger"><div *ngIf="fname.errors.required">
+                  First Name is required.
+               </div>
+               <div *ngIf="fname.errors.minlength">
+                  First Name must be at least 2 characters long.
+              </div>
+              <div *ngIf="fname.errors.maxlength">
+                  First Name cannot be more than 30 characters long.
+              </div>
+            </div>
+
 				<div class="form-group">
 				  <label class="control-label col-sm-2" for="lname">Last Name:</label>
 				  <div class="col-sm-10">          
-					<input type="text" class="form-control" id="lname" placeholder="Enter Last Name" name="lname">
+                        <input type="text" class="form-control" id="lname" placeholder="Enter Last Name" required maxlength="30" minlength="2" ngModel name="lname" #lname="ngModel">
 				  </div>
-				</div>
+                </div>
+                
+                <div *ngIf="lname.invalid && (lname.dirty || lname.touched)" class="alert alert-danger"><div *ngIf="lname.errors.required">
+                        Last Name is required.
+                     </div>
+                     <div *ngIf="lname.errors.minlength">
+                        Last Name must be at least 2 characters long.
+                    </div>
+                    <div *ngIf="lname.errors.maxlength">
+                        Last Name cannot be more than 30 characters long.
+                    </div>
+                  </div>
+
 				<div class="form-group">
 				  <label class="control-label col-sm-2" for="email">Email:</label>
-				  <div class="col-sm-10">
-					<input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-				  </div>
-				</div>
+				  <div class="col-sm-10">           
+                  <input type="email" id="email" placeholder="Enter Your Email" class="form-control" name="email" ngModel name="email" required pattern="[^ @]*@[^ @]*" emailDomain #email="ngModel">
+                  </div>
+                </div>
+                
+                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger"><div *ngIf="email.errors.required">
+                          Email is required.
+                       </div>
+                  <div *ngIf="email.errors.pattern">
+                      The email address must contain at least the @ character.
+                  </div>
+                  
+                </div>
+
 				<div class="form-group">
 				  <label class="control-label col-sm-2" for="comment">Comment:</label>
 				  <div class="col-sm-10">
-					<textarea class="form-control" rows="5" id="comment"></textarea>
+					<textarea class="form-control" rows="5" id="comment" name="comment" ngModel name="comment" required maxlength="30" minlength="10" #comment="ngModel"></textarea>
 				  </div>
-				</div>
+                </div>
+                
+                <div *ngIf="comment.invalid && (comment.dirty || comment.touched)" class="alert alert-danger"><div *ngIf="comment.errors.required">
+                        Please Leave Some Comment.
+                     </div>
+                     <div *ngIf="comment.errors.minlength">
+                       Comment must be at least 10 characters long.
+                    </div>
+                    <div *ngIf="comment.errors.maxlength">
+                       Comment cannot be more than 30 characters long.
+                    </div>
+                  </div>
+
 				<div class="form-group">        
 				  <div class="col-sm-offset-2 col-sm-10">
-					<button type="submit" class="btn btn-default">Submit</button>
+                        <button  type="submit"  [disabled]="contactForm.invalid">
+                           Submit
+                        </button>
 				  </div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+                </div>
 
+			</form>
+		</div>
+    </div>
+    <div  >
+            <hr>
+    </div>
+
+</div>
