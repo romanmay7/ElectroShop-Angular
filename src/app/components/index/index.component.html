@@ -17,7 +17,7 @@
               </div>
             </div>
             <div class="product-body">
-              <p class="product-category">Category</p>
+              <p class="product-category">Category:{{product.category}}</p>
               <h3 class="product-name"><a [routerLink]="['/product',{id:product.id}]">{{product.name}}</a></h3>
               <h4 class="product-price">{{product.price}}$ <del class="product-old-price">{{productService.round(product.price*100/70)}}$</del></h4>
 
