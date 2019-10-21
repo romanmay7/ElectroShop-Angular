@@ -2464,3 +2464,11 @@ textarea.input {
 	box-shadow: inset 0 0 0 1px #111111;
 }
 
+
+/* Fix for 'drop-down-menu-not-working-on-mobile-devices' */
+
+.dropdown-backdrop{
+
+  position: static;
+  
+  }
