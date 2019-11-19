@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../entities/product.entity';
 import {ProductService} from '../../services/product.service';
 import {ItemService} from '../../services/item.service';
+import {FilterPipe} from '../../pipes/filter.pipe';
 
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.scss']
+  styleUrls: ['./index.component.scss'],
+  providers:[FilterPipe]
 })
 export class IndexComponent implements OnInit {
 

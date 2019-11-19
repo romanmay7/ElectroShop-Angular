@@ -9,6 +9,7 @@ import { Review } from '../entities/review.entity';
 export class ProductService {
   
   public products:Product[];
+  public term:any;
   public search_results:Product[];
   public reviews_p01:Review[];
   public reviews_p02:Review[];

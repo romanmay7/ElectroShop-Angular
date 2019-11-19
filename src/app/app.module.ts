@@ -13,6 +13,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
+import { FilterPipe } from './pipes/filter.pipe';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { AboutComponent } from './components/about/about.component';
     HeaderComponent,
     FooterComponent,
     ContactComponent,
-    AboutComponent
+    AboutComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
