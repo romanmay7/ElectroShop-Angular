@@ -10,6 +10,7 @@ export class ProductService {
   
   public products:Product[];
   public term:any;
+  public selectedCategory:any;
   public search_results:Product[];
   public reviews_p01:Review[];
   public reviews_p02:Review[];
@@ -17,6 +18,7 @@ export class ProductService {
   
   //Seeding 
   constructor() {
+    this.selectedCategory="All Categories";
     this.reviews_p01=[{id:'1',reviewer_name:"John Doe Junior",date:"27 DEC 2018, 8:25PM",content:"I like this product!",rating:5},
     {id:'2',reviewer_name:"Samantha Vice",date:"27 JAN 2019, 6:01 PM",content:"Good Good Good!",rating:4}];
 

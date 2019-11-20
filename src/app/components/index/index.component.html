@@ -3,7 +3,7 @@
 <!-- Products tab & slick -->
 <div class="container">
   <div class="row"  >
-    <div class="col-md-2 col-sm-3" *ngFor="let product of products |filter:productService.term | paginate: config"  >
+    <div class="col-md-2 col-sm-3" *ngFor="let product of products |filter:productService.term:productService.selectedCategory| paginate: config"  >
       <!-- tab -->
       <div  id="tab1" class="tab-pane active">
         <div  class="products-slick" data-nav="#slick-nav-1">
